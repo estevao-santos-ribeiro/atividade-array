@@ -1,11 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Array de Frutas</title>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
+        }
+    </style>
 </head>
 <body>
-    
+
+<div class="container">
+    <h2>Array de Frutas</h2>
+
+    <input type="text" id="fruta" placeholder="Digite uma fruta"><br>
+
+    <button onclick="adicionarFinal()">Adicionar no Final (Push)</button>
+    <button onclick="adicionarInicio()">Adicionar no Início (Unshift)</button><br>
+
+    <button onclick="removerFinal()">Remover do Final (Pop)</button>
+    <button onclick="removerInicio()">Remover do Início (Shift)</button><br>
+
+    <button onclick="ordenar()">Ordenar (Sort)</button>
+
+    <p id="resultado"></p>
+</div>
+
+<script>
+    let frutas = ["Banana", "Maçã", "Uva", "Laranja"];
+
+    function mostrar() {
+        document.getElementById('resultado').innerText = "Frutas: " + frutas.join(", ");
+    }
+
+    function adicionarFinal() {
+        let f = document.getElementById('fruta').value;
+        if (f != "") {
+            frutas.push(f);
+            document.getElementById('fruta').value = "";
+            mostrar();
+        }
+    }
+
+    function adicionarInicio() {
+        let f = document.getElementById('fruta').value;
+        if (f != "") {
+            frutas.unshift(f);
+            document.getElementById('fruta').value = "";
+            mostrar();
+        }
+    }
+
+    function removerFinal() {
+        frutas.pop();
+        mostrar();
+    }
+
+    function removerInicio() {
+        frutas.shift();
+        mostrar();
+    }
+
+    function ordenar() {
+        frutas.sort();
+        mostrar();
+    }
+
+    mostrar();
+</script>
+
 </body>
 </html>
